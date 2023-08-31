@@ -1,2 +1,0 @@
-# easyCharge
-ISPW project

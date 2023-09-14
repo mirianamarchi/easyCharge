@@ -30,12 +30,8 @@ public class CLILoginController {
             System.out.println("3. Back");
 
             switch (input.nextLine()) {
-                case "1" -> {
-                    this.login(input);
-                }
-                case "2" -> {
-                    this.register(input);
-                }
+                case "1" -> this.login(input);
+                case "2" -> this.register(input);
                 case "3" -> {
                     CLIHomeController chc = new CLIHomeController();
                     chc.init();

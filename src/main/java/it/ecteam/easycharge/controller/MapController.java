@@ -10,6 +10,7 @@ import java.util.List;
 
 public class MapController {
 
+    private MapController(){}
     public static List<Double> getCoordinates(String string) throws IOException, ParseException, LocationNotFoundException {
         List<Double> coord = new ArrayList<>();
 

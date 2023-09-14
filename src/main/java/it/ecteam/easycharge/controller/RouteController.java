@@ -12,6 +12,7 @@ import java.util.List;
 
 public class RouteController {
 
+    private RouteController(){}
     public static List<ChargingStationBean> getPerfectRoute(List<Double> start, List<Double> end, String capacity) throws IOException, ParseException, LocationNotFoundException, ChargingStationNotFoundException {
         List<ChargingStationBean> csb = new ArrayList<>();
 

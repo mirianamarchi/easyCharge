@@ -1,7 +1,6 @@
 package route;
 
-import it.ecteam.easycharge.controller.RouteController;
-import it.ecteam.easycharge.exceptions.ChargingStationNotFoundException;
+import it.ecteam.easycharge.viewcontroller.RouteBoundary;
 import it.ecteam.easycharge.exceptions.LocationNotFoundException;
 import org.json.simple.parser.ParseException;
 import org.junit.Test;
@@ -12,17 +11,17 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 //Author: Miriana Marchi
-public class TestRouteController {
+public class TestRouteBoundary {
     @Test
     public void testGetOnRoute() {
 
-        RouteController rc;
+        RouteBoundary rc;
         String output;
         String attended;
         List<Double> start = new ArrayList<> (); ;
         List<Double> end = new ArrayList<>();;
 
-        rc = RouteController.getInstance();
+        rc = RouteBoundary.getInstance();
         output="";
         attended="";
         start.add(0,12.493321);

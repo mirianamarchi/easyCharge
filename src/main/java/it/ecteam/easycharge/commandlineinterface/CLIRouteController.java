@@ -5,8 +5,8 @@ import it.ecteam.easycharge.bean.ChargingStationBean;
 import it.ecteam.easycharge.bean.ConnectorBean;
 import it.ecteam.easycharge.bean.UserBean;
 import it.ecteam.easycharge.controller.ChargingStationController;
-import it.ecteam.easycharge.controller.MapController;
-import it.ecteam.easycharge.controller.RouteController;
+import it.ecteam.easycharge.viewcontroller.MapBoundary;
+import it.ecteam.easycharge.viewcontroller.RouteBoundary;
 import it.ecteam.easycharge.controller.UserController;
 import it.ecteam.easycharge.exceptions.ChargingStationNotFoundException;
 import it.ecteam.easycharge.exceptions.LocationNotFoundException;
@@ -33,8 +33,8 @@ public class CLIRouteController {
     protected static final Logger logger = Logger.getLogger("CLI");
     protected void searchRoute(String start, String end, Scanner input) {
         try {
-            startPoint = MapController.getCoordinates(start);
-            endPoint = MapController.getCoordinates(end);
+            startPoint = MapBoundary.getCoordinates(start);
+            endPoint = MapBoundary.getCoordinates(end);
         } catch (IOException | ParseException | LocationNotFoundException e) {
             logger.log(Level.WARNING, e.toString());
         }
@@ -42,14 +42,14 @@ public class CLIRouteController {
 
         if(Objects.equals(input.nextLine(), "y")) {
             try {
-                chargingStationList = RouteController.getOnRoute(startPoint, endPoint);
+                chargingStationList = RouteBoundary.getOnRoute(startPoint, endPoint);
                 printFCS(chargingStationList);
             } catch (IOException | ParseException | ChargingStationNotFoundException | LocationNotFoundException e) {
                 logger.log(Level.WARNING, e.toString());
             }
         }else{
             try {
-                chargingStationList = RouteController.getOnRoute(startPoint, endPoint);
+                chargingStationList = RouteBoundary.getOnRoute(startPoint, endPoint);
                 printCS(chargingStationList);
             } catch (IOException | ParseException | LocationNotFoundException | ChargingStationNotFoundException e) {
                 logger.log(Level.WARNING, e.toString());
@@ -61,14 +61,14 @@ public class CLIRouteController {
 
     protected void perfectRoute(String start, String end) {
         try {
-            startPoint = MapController.getCoordinates(start);
-            endPoint = MapController.getCoordinates(end);
+            startPoint = MapBoundary.getCoordinates(start);
+            endPoint = MapBoundary.getCoordinates(end);
         } catch (IOException | ParseException | LocationNotFoundException e) {
             logger.log(Level.WARNING, e.toString());
         }
 
         try {
-            chargingStationList = RouteController.getPerfectRoute(startPoint, endPoint, cb.getCapacity());
+            chargingStationList = RouteBoundary.getPerfectRoute(startPoint, endPoint, cb.getCapacity());
             int i;
             for(i=0; i < chargingStationList.size(); i++){
                 System.out.println(i+1+". "+chargingStationList.get(i).getName()+", "+chargingStationList.get(i).getFreeformAddress());

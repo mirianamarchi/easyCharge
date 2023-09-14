@@ -3,7 +3,6 @@ package it.ecteam.easycharge.viewcontroller;
 import it.ecteam.easycharge.bean.*;
 import it.ecteam.easycharge.controller.BusinessController;
 import it.ecteam.easycharge.controller.ChargingStationController;
-import it.ecteam.easycharge.controller.MapController;
 import it.ecteam.easycharge.exceptions.ChargingStationNotFoundException;
 import it.ecteam.easycharge.exceptions.LocationNotFoundException;
 import it.ecteam.easycharge.utils.SessionUser;
@@ -120,7 +119,7 @@ public class BusinessViewController implements Initializable {
         assert business != null;
         addressLabel.setText(business.getAddress());
         try {
-            Long distance = MapController.getDistance(MapController.getCoordinates((business.getAddress())), MapController.getCoordinates(chargingStationList.get(id - 1).getFreeformAddress()));
+            Long distance = MapBoundary.getDistance(MapBoundary.getCoordinates((business.getAddress())), MapBoundary.getCoordinates(chargingStationList.get(id - 1).getFreeformAddress()));
             distanceLabel.setText("This charging station is "+(distance)/1000+"km from your business");
             List<ChargingStationBean> chargingStationAds = BusinessController.getBusinessAds(business.getId());
             int i;

@@ -97,12 +97,12 @@ public class RouteViewController extends StackPane implements Initializable {
 
     @FXML
     protected void onSearchRouteClick() throws IOException, ParseException, LocationNotFoundException {
-        start = MapController.getCoordinates(startField.getText());
-        end = MapController.getCoordinates(destField.getText());
+        start = UserController.getCoordinates(startField.getText());
+        end = UserController.getCoordinates(destField.getText());
         listView.getItems().clear();
 
         try {
-            chargingStationList = RouteController.getOnRoute(start, end);
+            chargingStationList = UserController.getOnRoute(start, end);
             int i;
             for(i=0; i < chargingStationList.size(); i++){
                 listView.getItems().add(i + 1 + ". " + chargingStationList.get(i).getName() + "\n" + chargingStationList.get(i).getFreeformAddress() + SPACE);
@@ -175,7 +175,7 @@ public class RouteViewController extends StackPane implements Initializable {
         csLabel.setText("");
 
         try {
-            perfectRouteList = RouteController.getPerfectRoute(start, end, cb.getCapacity());
+            perfectRouteList = UserController.getPerfectRoute(start, end, cb.getCapacity());
             if(!perfectRouteList.isEmpty()) {
                 int i;
                 for (i = 0; i < perfectRouteList.size(); i++) {

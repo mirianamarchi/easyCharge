@@ -4,6 +4,7 @@ import it.ecteam.easycharge.bean.ChargingStationBean;
 import it.ecteam.easycharge.bean.ConnectorBean;
 import it.ecteam.easycharge.exceptions.ChargingStationNotFoundException;
 import it.ecteam.easycharge.exceptions.LocationNotFoundException;
+import it.ecteam.easycharge.viewcontroller.MapBoundary;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -31,7 +32,7 @@ public class ChargingStationController {
         String jsonString;
         StringBuilder str = new StringBuilder();
         //Request to the tomtom service
-        URL geocodingUrl = new URL("https://api.tomtom.com/search/2/nearbySearch/.json?"+MapController.getLocation()+"&radius="+radius+"&categorySet=7309&view=Unified&key="+getAPI());
+        URL geocodingUrl = new URL("https://api.tomtom.com/search/2/nearbySearch/.json?"+ MapBoundary.getLocation()+"&radius="+radius+"&categorySet=7309&view=Unified&key="+getAPI());
         URLConnection geocoding = geocodingUrl.openConnection();
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(

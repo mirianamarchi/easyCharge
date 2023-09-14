@@ -1,5 +1,6 @@
 package it.ecteam.easycharge.dao;
 
+import it.ecteam.easycharge.bean.CarBean;
 import it.ecteam.easycharge.entity.Car;
 import it.ecteam.easycharge.utils.DataBaseConnection;
 import org.json.simple.JSONArray;
@@ -25,10 +26,10 @@ public class CarDao extends DaoTemplate{
     protected static final String RANGE = "rnge";
 
     //get a user's car
-    public Car getCar(String username){
-        return this.execute(new DaoAction<Car>() {
+    public CarBean getCar(String username){
+        return this.execute(new DaoAction<CarBean>() {
             @Override
-            public Car act() throws ClassNotFoundException, SQLException {
+            public CarBean act() throws ClassNotFoundException, SQLException {
                 Connection conn = null;
                 Car car = null;
                 conn = DataBaseConnection.getConnection();
@@ -59,8 +60,12 @@ public class CarDao extends DaoTemplate{
                 }
 
                 getCarFS(username);
-
-                return car;
+                CarBean c = new CarBean();
+                c.setName(car.getName());
+                c.setCapacity(car.getCapacity());
+                c.setRange(car.getRange());
+                c.setConnectorType(car.getConnectorType());
+                return c;
             }
         });
     }

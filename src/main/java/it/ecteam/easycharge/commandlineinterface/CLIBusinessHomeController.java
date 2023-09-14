@@ -5,7 +5,7 @@ import it.ecteam.easycharge.bean.ChargingStationBean;
 import it.ecteam.easycharge.bean.UserBean;
 import it.ecteam.easycharge.controller.BusinessController;
 import it.ecteam.easycharge.controller.ChargingStationController;
-import it.ecteam.easycharge.controller.MapController;
+import it.ecteam.easycharge.viewcontroller.MapBoundary;
 import it.ecteam.easycharge.exceptions.ChargingStationNotFoundException;
 import it.ecteam.easycharge.exceptions.LocationNotFoundException;
 import it.ecteam.easycharge.utils.SessionUser;
@@ -97,7 +97,7 @@ public class CLIBusinessHomeController {
     private void chargingStationPrint(List<ChargingStationBean> chargingStationList) throws IOException, ParseException, LocationNotFoundException {
         int i;
         for(i=0; i < chargingStationList.size(); i++){
-            Long distance = MapController.getDistance(MapController.getCoordinates((business.getAddress())), MapController.getCoordinates(chargingStationList.get(i).getFreeformAddress()));
+            Long distance = MapBoundary.getDistance(MapBoundary.getCoordinates((business.getAddress())), MapBoundary.getCoordinates(chargingStationList.get(i).getFreeformAddress()));
             System.out.println(i+1+". "+chargingStationList.get(i).getName()+", "+chargingStationList.get(i).getFreeformAddress() + " distance from  your business: "+ distance);
         }
     }

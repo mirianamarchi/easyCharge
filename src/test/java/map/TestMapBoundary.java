@@ -1,6 +1,6 @@
 package map;
 
-import it.ecteam.easycharge.controller.MapController;
+import it.ecteam.easycharge.viewcontroller.MapBoundary;
 import it.ecteam.easycharge.exceptions.LocationNotFoundException;
 import org.json.simple.parser.ParseException;
 import org.junit.Test;
@@ -12,18 +12,18 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //Author: Miriana Marchi
-public class TestMapController {
+public class TestMapBoundary {
 
     @Test
     public void testDistance() {
 
-        MapController mc;
+        MapBoundary mc;
         String output;
         String attended;
         List<Double> start = new ArrayList<>();
         List<Double> end = new ArrayList<>();
 
-        mc= MapController.getInstance();
+        mc= MapBoundary.getInstance();
         output="";
         attended="Server returned HTTP response code: 400 for URL: https://api.tomtom.com/routing/1/calculateRoute/12.493321%2C12.493321%3A37.828789%2C-122.485964/json?key=csPBICaGiqrDG1YIKGXg4alunzBPez4I";
         start.add(0,12.493321);
@@ -43,12 +43,12 @@ public class TestMapController {
     @Test
     public void testCoordinates() {
 
-        MapController mc;
+        MapBoundary mc;
         String output;
         String attended;
         String location;
 
-        mc=MapController.getInstance();
+        mc= MapBoundary.getInstance();
         output="";
         attended="No coordinates found for this location";
         location = ".";

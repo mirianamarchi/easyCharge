@@ -170,10 +170,7 @@ public class CLILoginController {
             SessionUserFactory factory = new SessionUserFactory();
             SessionUser sessionUser = factory.createSessionUser();
             sessionUser.setSession(ub);
-            /*
-            //Singleton
-            SessionUser su = SessionUser.getInstance();
-            su.setSession(ub);*/
+
 
             switch (role) {
                 case "user" -> {

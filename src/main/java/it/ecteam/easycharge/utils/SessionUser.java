@@ -6,10 +6,9 @@ public class SessionUser {
 
     private static UserBean userSession;
 
-    public SessionUser() {
-    }
+    public SessionUser() {}
 
-    public void setSession(UserBean userSession) {
+    public static void setSession(UserBean userSession) {
         if (this.userSession == null) {
             this.userSession = userSession;
         }

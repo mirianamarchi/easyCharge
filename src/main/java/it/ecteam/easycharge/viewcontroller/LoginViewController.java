@@ -80,10 +80,6 @@ public class LoginViewController implements Initializable {
                 SessionUser sessionUser = factory.createSessionUser();
                 sessionUser.setSession(u);
 
-                /*
-                //Singleton
-                SessionUser su=SessionUser.getInstance();
-                su.setSession(u);*/
 
                 switch(role) {
                     case "user":

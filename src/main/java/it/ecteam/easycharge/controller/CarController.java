@@ -1,6 +1,6 @@
 package it.ecteam.easycharge.controller;
 
-import it.ecteam.easycharge.bean.CarBean;
+
 import it.ecteam.easycharge.dao.CarDao;
 import it.ecteam.easycharge.entity.Car;
 

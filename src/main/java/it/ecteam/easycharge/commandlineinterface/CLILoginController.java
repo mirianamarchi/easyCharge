@@ -75,9 +75,7 @@ public class CLILoginController {
                 SessionUserFactory factory = new SessionUserFactory();
                 SessionUser sessionUser = factory.createSessionUser();
                 sessionUser.setSession(gu);
-                /*
-                SessionUser su = SessionUser.getInstance();
-                su.setSession(gu);*/
+
 
                 switch (role) {
                     case "user" -> {

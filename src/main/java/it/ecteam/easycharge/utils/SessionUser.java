@@ -6,11 +6,13 @@ public class SessionUser {
 
     private static UserBean userSession;
 
-    public SessionUser() {}
+    private SessionUser() {
+        //constructor
+    }
 
-    public static void setSession(UserBean userSession) {
-        if (this.userSession == null) {
-            this.userSession = userSession;
+    public void setSession(UserBean userSession) {
+        if (SessionUser.userSession == null) {
+            SessionUser.userSession = userSession;
         }
     }
 

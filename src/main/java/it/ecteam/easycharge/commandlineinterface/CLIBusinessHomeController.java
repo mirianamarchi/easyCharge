@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 import static it.ecteam.easycharge.commandlineinterface.CommandLineInterface.*;
 
 public class CLIBusinessHomeController {
-    private UserBean ub = SessionUser.getInstance().getSession();
+    private UserBean ub = SessionUser.getSession();
     private List<ChargingStationBean> chargingStationList = new ArrayList<>();
     private List<ChargingStationBean> csAdsList = new ArrayList<>();
     private BusinessBean business = new BusinessBean();
@@ -145,7 +145,7 @@ public class CLIBusinessHomeController {
                 }
                 case "4" -> {
                     System.out.println(RED + "Logged out" + RESET);
-                    SessionUser.getInstance().closeSession();
+                    SessionUser.closeSession();
                     CLIHomeController hc = new CLIHomeController();
                     hc.init();
                 }

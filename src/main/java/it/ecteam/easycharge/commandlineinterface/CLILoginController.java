@@ -6,6 +6,7 @@ import it.ecteam.easycharge.bean.UserBean;
 import it.ecteam.easycharge.controller.LoginController;
 import it.ecteam.easycharge.exceptions.EmptyFieldException;
 import it.ecteam.easycharge.utils.SessionUser;
+import it.ecteam.easycharge.utils.SessionUserFactory;
 
 import java.util.List;
 import java.util.Objects;
@@ -70,8 +71,13 @@ public class CLILoginController {
                 String role = gu.getRole();
 
                 //SET SESSION USER
+                //Factory Method
+                SessionUserFactory factory = new SessionUserFactory();
+                SessionUser sessionUser = factory.createSessionUser();
+                sessionUser.setSession(gu);
+                /*
                 SessionUser su = SessionUser.getInstance();
-                su.setSession(gu);
+                su.setSession(gu);*/
 
                 switch (role) {
                     case "user" -> {
@@ -162,8 +168,14 @@ public class CLILoginController {
         } else {
 
             //SET SESSION USER
+            //Factory Method
+            SessionUserFactory factory = new SessionUserFactory();
+            SessionUser sessionUser = factory.createSessionUser();
+            sessionUser.setSession(ub);
+            /*
+            //Singleton
             SessionUser su = SessionUser.getInstance();
-            su.setSession(ub);
+            su.setSession(ub);*/
 
             switch (role) {
                 case "user" -> {

@@ -79,7 +79,7 @@ public class MainViewController extends StackPane implements Initializable  {
     private CheckBox favoriteBox;
 
     private UserGraphicChange ugc;
-    private UserBean ub = SessionUser.getInstance().getSession();
+    private UserBean ub = SessionUser.getSession();
 
     private List<ChargingStationBean> chargingStationList = new ArrayList<>();
     private List<ConnectorBean> connectorBeanList = new ArrayList<>();

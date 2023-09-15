@@ -20,9 +20,9 @@ import java.util.List;
 public class UserController {
 
     public CarBean getCar(String name) {
-        CarDao cd = new CarDao();
+        CarController cc = new CarController();
 
-        CarBean result = cd.getCar(name);
+        Car result = cc.getCar(name);
         if (result == null)	{
             return null;
         } else {

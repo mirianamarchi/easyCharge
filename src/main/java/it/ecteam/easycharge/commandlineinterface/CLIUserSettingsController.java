@@ -14,7 +14,7 @@ import static it.ecteam.easycharge.commandlineinterface.CommandLineInterface.RED
 import static it.ecteam.easycharge.commandlineinterface.CommandLineInterface.RESET;
 
 public class CLIUserSettingsController {
-    private UserBean ub = SessionUser.getInstance().getSession();
+    private UserBean ub = SessionUser.getSession();
 
     public void print(){
         System.out.println("----------EasyCharge----------");

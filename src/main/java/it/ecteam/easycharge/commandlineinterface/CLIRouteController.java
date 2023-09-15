@@ -25,7 +25,7 @@ import java.util.logging.Logger;
 import static it.ecteam.easycharge.commandlineinterface.CommandLineInterface.*;
 
 public class CLIRouteController {
-    private UserBean ub = SessionUser.getInstance().getSession();
+    private UserBean ub = SessionUser.getSession();
     private List<ChargingStationBean> chargingStationList = new ArrayList<>();
     private List<ConnectorBean> connectorBeanList = new ArrayList<>();
     private List<Double> startPoint = new ArrayList<>();

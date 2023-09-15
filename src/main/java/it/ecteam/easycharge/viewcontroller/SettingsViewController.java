@@ -83,7 +83,7 @@ public class SettingsViewController implements Initializable {
 
     @FXML
     protected void onLogoutClick(){
-        SessionUser.getInstance().closeSession();
+        SessionUser.closeSession();
         stage = (Stage) logoutBtn.getScene().getWindow();
         this.ugc.toLogin(stage);
     }
@@ -91,7 +91,7 @@ public class SettingsViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.ugc = UserGraphicChange.getInstance();
-        UserBean ub = SessionUser.getInstance().getSession();
+        UserBean ub = SessionUser.getSession();
 
         this.usernameLabel.setText(ub.getUsername());
 

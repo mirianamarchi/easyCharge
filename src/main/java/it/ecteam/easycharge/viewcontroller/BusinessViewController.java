@@ -53,7 +53,7 @@ public class BusinessViewController implements Initializable {
 
 
     private BusinessGraphicChange bgc;
-    private UserBean ub = SessionUser.getInstance().getSession();
+    private UserBean ub = SessionUser.getSession();
     private List<ChargingStationBean> chargingStationList = new ArrayList<>();
     private BusinessBean business = new BusinessBean();
     private String csid;

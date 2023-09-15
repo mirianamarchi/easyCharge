@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 import static it.ecteam.easycharge.commandlineinterface.CommandLineInterface.*;
 
 public class CLIUserHomeController {
-    private UserBean ub = SessionUser.getInstance().getSession();
+    private UserBean ub = SessionUser.getSession();
     private List<ChargingStationBean> chargingStationList = new ArrayList<>();
     private List<ConnectorBean> connectorBeanList = new ArrayList<>();
     private List<ChargingStationBean> favoriteCSB = UserController.getFavorite(ub.getUsername());
@@ -306,7 +306,7 @@ public class CLIUserHomeController {
                     usc.init();
                 }
                 case "5" -> {
-                    SessionUser.getInstance().closeSession();
+                    SessionUser.closeSession();
                     System.out.println(RED + "Logged out" + RESET);
                     CLIHomeController hc = new CLIHomeController();
                     hc.init();

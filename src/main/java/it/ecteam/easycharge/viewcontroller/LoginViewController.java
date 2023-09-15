@@ -4,6 +4,7 @@ import it.ecteam.easycharge.bean.UserBean;
 import it.ecteam.easycharge.controller.LoginController;
 import it.ecteam.easycharge.exceptions.LoginEmptyFieldException;
 import it.ecteam.easycharge.utils.SessionUser;
+import it.ecteam.easycharge.utils.SessionUserFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -73,8 +74,16 @@ public class LoginViewController implements Initializable {
                 String role=u.getRole();
 
                 //SET SESSION
+
+                //Factory Method
+                SessionUserFactory factory = new SessionUserFactory();
+                SessionUser sessionUser = factory.createSessionUser();
+                sessionUser.setSession(u);
+
+                /*
+                //Singleton
                 SessionUser su=SessionUser.getInstance();
-                su.setSession(u);
+                su.setSession(u);*/
 
                 switch(role) {
                     case "user":

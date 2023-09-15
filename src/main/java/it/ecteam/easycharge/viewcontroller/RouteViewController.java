@@ -126,7 +126,7 @@ public class RouteViewController extends StackPane implements Initializable {
     @FXML
     protected void onFavoriteOnBtnClick(){
         UserController uc = new UserController();
-        UserBean ub = SessionUser.getInstance().getSession();
+        UserBean ub = SessionUser.getSession();
 
         uc.deleteFavorite(ub.getUsername(), csid);
         favoriteOnBtn.setVisible(false);
@@ -209,7 +209,7 @@ public class RouteViewController extends StackPane implements Initializable {
         report = ReportController.getUserReport(String.valueOf(chargingStationList.get(id - 1).getId()));
         csid = chargingStationList.get(id-1).getId();
 
-        UserBean ub = SessionUser.getInstance().getSession();
+        UserBean ub = SessionUser.getSession();
         if (ub != null) {
             favoriteOffBtn.setVisible(true);
             favoriteOnBtn.setVisible(false);
@@ -263,7 +263,7 @@ public class RouteViewController extends StackPane implements Initializable {
         webMap.getEngine().load("https://www.google.com/maps/dir/?api=1&origin=&destination=&travelmode=driving&waypoint_place_ids=ChIJ5zZx3kNjLxMRAIuXSFIRfwk%ChIJL6pCbOVhLxMRODH8uDzXLDo");
 
         //init nameBar
-        UserBean ub = SessionUser.getInstance().getSession();
+        UserBean ub = SessionUser.getSession();
 
         UserController uc = new UserController();
         userLabel.setText(ub.getUsername());

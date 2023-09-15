@@ -10,7 +10,7 @@ import static it.ecteam.easycharge.commandlineinterface.CommandLineInterface.RED
 import static it.ecteam.easycharge.commandlineinterface.CommandLineInterface.RESET;
 
 public class CLIBusinessSettingsController {
-    private UserBean ub = SessionUser.getInstance().getSession();
+    private UserBean ub = SessionUser.getSession();
     private BusinessBean business = new BusinessBean();
     public void print(){
         System.out.println("----------EasyCharge----------");

@@ -40,7 +40,7 @@ public class MyBusinessViewController implements Initializable {
     private Label pLabel;
 
     private BusinessGraphicChange bgc;
-    private UserBean ub = SessionUser.getInstance().getSession();
+    private UserBean ub = SessionUser.getSession();
     private List<ChargingStationBean> csList = new ArrayList<>();
     private BusinessBean business = new BusinessBean();
     private int csid;

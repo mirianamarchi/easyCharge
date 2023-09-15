@@ -26,10 +26,10 @@ public class CarDao extends DaoTemplate{
     protected static final String RANGE = "rnge";
 
     //get a user's car
-    public CarBean getCar(String username){
-        return this.execute(new DaoAction<CarBean>() {
+    public Car getCar(String username){
+        return this.execute(new DaoAction<Car>() {
             @Override
-            public CarBean act() throws ClassNotFoundException, SQLException {
+            public Car act() throws ClassNotFoundException, SQLException {
                 Connection conn = null;
                 Car car = null;
                 conn = DataBaseConnection.getConnection();
@@ -60,12 +60,8 @@ public class CarDao extends DaoTemplate{
                 }
 
                 getCarFS(username);
-                CarBean c = new CarBean();
-                c.setName(car.getName());
-                c.setCapacity(car.getCapacity());
-                c.setRange(car.getRange());
-                c.setConnectorType(car.getConnectorType());
-                return c;
+
+                return car;
             }
         });
     }

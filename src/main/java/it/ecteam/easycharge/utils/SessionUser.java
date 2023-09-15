@@ -10,7 +10,7 @@ public class SessionUser {
         //constructor
     }
 
-    public static void setSession(UserBean userSession) {
+    public void setSession(UserBean userSession) {
         if (SessionUser.userSession == null) {
             SessionUser.userSession = userSession;
         }

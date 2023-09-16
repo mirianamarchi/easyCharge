@@ -12,7 +12,7 @@ public class SessionUser {
 
     public void setSession(UserBean userSession) {
         if (SessionUser.userSession == null) {
-            this.userSession = userSession;
+            SessionUser.userSession = userSession;
         }
     }
 
